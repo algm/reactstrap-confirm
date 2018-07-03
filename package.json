@@ -29,7 +29,10 @@
     "scripts": {
         "start": "webpack-dev-server --open --mode development",
         "build": "babel src -d dist --copy-files",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run build",
+        "buildExample": "webpack --mode production",
+        "deploy": "gh-pages -d examples/dist",
+        "publish-demo": "npm run buildExample && npm run deploy"
     },
     "peerDependencies": {
         "react": "^16.4.1",
