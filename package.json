@@ -1,8 +1,8 @@
 {
     "name": "reactstrap-confirm",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Promise based confirm for reactstrap",
-    "main": "/lib/index.js",
+    "main": "dist/index.js",
     "repository": "git@github.com:algm/reactstrap-confirm.git",
     "author": "Antonio Gázquez <algm85@gmail.com>",
     "license": "MIT",
