@@ -1,5 +1,9 @@
 # Reactstrap confirm
 
+[![Build Status](https://travis-ci.org/algm/reactstrap-confirm.svg?branch=master)](https://travis-ci.org/algm/reactstrap-confirm)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8b2a2d88066f4f46a1bff876093a35b7)](https://www.codacy.com/app/piticonejo/reactstrap-confirm?utm_source=github.com&utm_medium=referral&utm_content=algm/reactstrap-confirm&utm_campaign=Badge_Grade)
+[![npm version](https://badge.fury.io/js/reactstrap-confirm.svg)](https://badge.fury.io/js/reactstrap-confirm)
+
 An easy to use promise based confirm dialog for reactstrap.
 
 The objective of this package is to offer a simple and easy way for developers to show confirm dialogs within their apps without having to worry about states or having to repeat the same components in many places.
