@@ -14,13 +14,13 @@ Demo: https://algm.github.io/reactstrap-confirm
 
 Simply use npm
 
-```
+```bash
 npm i --save reactstrap-confirm
 ```
 
 You can use yarn as well
 
-```
+```bash
 yarn add reactstrap-confirm
 ```
 
