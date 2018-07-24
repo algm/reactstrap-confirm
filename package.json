@@ -1,6 +1,6 @@
 {
     "name": "reactstrap-confirm",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Promise based confirm for reactstrap",
     "main": "dist/index.js",
     "repository": "git@github.com:algm/reactstrap-confirm.git",
