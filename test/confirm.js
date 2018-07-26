@@ -1,3 +1,5 @@
+/* global describe, it */
+
 import { expect } from 'chai';
 import jsdom from 'mocha-jsdom';
 import confirm from '../src/index';
