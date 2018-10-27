@@ -11,6 +11,7 @@ export default class ConfirmModal extends Component {
 
         this.confirm = this.confirm.bind(this);
         this.cancel = this.cancel.bind(this);
+        this.toggle = this.toggle.bind(this);
     }
 
     toggle(result = true) {
@@ -47,7 +48,9 @@ export default class ConfirmModal extends Component {
 
         if (title) {
             modalHeader = (
-                <ModalHeader toggle={this.toggle}>{title}</ModalHeader>
+                <ModalHeader toggle={() => {
+                    this.toggle(false);
+                }}>{title}</ModalHeader>
             );
         }
 
@@ -60,7 +63,9 @@ export default class ConfirmModal extends Component {
         }
 
         return (
-            <Modal isOpen={this.state.modalOpen} className={className}>
+            <Modal isOpen={this.state.modalOpen} toggle={() => {
+                this.toggle(false);
+            }} className={className}>
                 {modalHeader}
                 <ModalBody>{message}</ModalBody>
                 <ModalFooter>
