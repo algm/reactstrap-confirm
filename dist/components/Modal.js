@@ -34,6 +34,7 @@ var ConfirmModal = function (_Component) {
 
         _this.confirm = _this.confirm.bind(_this);
         _this.cancel = _this.cancel.bind(_this);
+        _this.toggle = _this.toggle.bind(_this);
         return _this;
     }
 
@@ -63,6 +64,8 @@ var ConfirmModal = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             var _props = this.props,
                 message = _props.message,
                 title = _props.title,
@@ -79,7 +82,9 @@ var ConfirmModal = function (_Component) {
             if (title) {
                 modalHeader = _react2.default.createElement(
                     _reactstrap.ModalHeader,
-                    { toggle: this.toggle },
+                    { toggle: function toggle() {
+                            _this2.toggle(false);
+                        } },
                     title
                 );
             }
@@ -94,7 +99,9 @@ var ConfirmModal = function (_Component) {
 
             return _react2.default.createElement(
                 _reactstrap.Modal,
-                { isOpen: this.state.modalOpen, className: className },
+                { isOpen: this.state.modalOpen, toggle: function toggle() {
+                        _this2.toggle(false);
+                    }, className: className },
                 modalHeader,
                 _react2.default.createElement(
                     _reactstrap.ModalBody,
