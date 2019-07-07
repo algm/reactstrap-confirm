@@ -1,7 +1,7 @@
-import Confirm from "./Confirm";
+import Confirm from './Confirm';
 
 export default function confirm(options = {}) {
-  const instance = new Confirm(options);
+    const instance = new Confirm(options);
 
-  return instance.open();
+    return instance.open();
 }

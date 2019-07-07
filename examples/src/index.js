@@ -1,5 +1,5 @@
 import '@babel/polyfill';
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Container } from 'reactstrap';
 import confirm from '../../src/index';
@@ -14,9 +14,9 @@ class Example extends Component {
     async handleCustom() {
         let result = await confirm({
             title: (
-                <Fragment>
+                <>
                     Content can have <strong>JSX</strong>!
-                </Fragment>
+                </>
             ),
             message: 'This is a custom message',
             confirmText: 'Custom confirm message',

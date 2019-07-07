@@ -4,19 +4,40 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
+        "ecmaVersion": 2018,
         "sourceType": "module"
     },
-    "plugins": ["react"],
+    "plugins": [
+        "react"
+    ],
     "rules": {
-        "indent": ["error", 4],
-        "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "single"],
-        "semi": ["error", "always"]
+        "react/prop-types": "off",
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
