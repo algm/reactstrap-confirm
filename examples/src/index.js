@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Container } from 'reactstrap';
