@@ -51,7 +51,6 @@
         "reactstrap": ">=^6.2.0"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.4.4",
-        "lodash.defaults": "^4.2.0"
+        "@babel/polyfill": "^7.4.4"
     }
 }
