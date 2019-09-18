@@ -1,17 +1,17 @@
 import '@babel/polyfill';
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import { Button, Container } from 'reactstrap';
 import confirm from '../../src/index';
 
-class Example extends Component {
-    async handleBasic() {
+const Example = () => {
+    const handleBasic = async () => {
         let result = await confirm();
 
         alert(`Confirm result: ${result}`);
-    }
+    };
 
-    async handleCustom() {
+    const handleCustom = async () => {
         let result = await confirm({
             title: (
                 <>
@@ -25,9 +25,9 @@ class Example extends Component {
         });
 
         alert(`Confirm result: ${result}`);
-    }
+    };
 
-    async handleAlert() {
+    const handleAlert = async () => {
         let result = await confirm({
             title: null,
             message: 'I can use this component to display alerts!',
@@ -37,25 +37,23 @@ class Example extends Component {
         });
 
         alert(`Confirm result: ${result}`);
-    }
+    };
 
-    render() {
-        return (
-            <Container>
-                <Button block onClick={this.handleBasic.bind(this)}>
-                    Basic confirm
-                </Button>
+    return (
+        <Container>
+            <Button block onClick={handleBasic}>
+                Basic confirm
+            </Button>
 
-                <Button block onClick={this.handleCustom.bind(this)}>
-                    Custom confirm
-                </Button>
+            <Button block onClick={handleCustom}>
+                Custom confirm
+            </Button>
 
-                <Button block onClick={this.handleAlert.bind(this)}>
-                    Alert style
-                </Button>
-            </Container>
-        );
-    }
-}
+            <Button block onClick={handleAlert}>
+                Alert style
+            </Button>
+        </Container>
+    );
+};
 
-ReactDOM.render(<Example />, document.getElementById('app'));
+render(<Example />, document.getElementById('app'));
