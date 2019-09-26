@@ -1,6 +1,6 @@
 {
     "name": "reactstrap-confirm",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Promise based confirm for reactstrap",
     "main": "dist/index.js",
     "repository": "git@github.com:algm/reactstrap-confirm.git",
@@ -27,9 +27,9 @@
         "jsdom": "11.11.0",
         "mocha": "^5.2.0",
         "mocha-jsdom": "^2.0.0",
-        "react": "^16.8.6",
+        "react": "^16.9.0",
         "react-addons-test-utils": "^15.6.2",
-        "react-dom": "^16.8.6",
+        "react-dom": "^16.9.0",
         "reactstrap": "^8.0.0",
         "webpack": "^4.35.2",
         "webpack-cli": "^3.3.5",
@@ -51,7 +51,6 @@
         "reactstrap": ">=^6.2.0"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.4.4",
-        "lodash.defaults": "^4.2.0"
+        "@babel/polyfill": "^7.4.4"
     }
 }
