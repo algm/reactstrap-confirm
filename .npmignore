@@ -4,3 +4,5 @@ examples
 .gitignore
 webpack.config.js
 .git
+.storybook
+stories
