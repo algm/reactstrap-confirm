@@ -11,7 +11,8 @@ const ConfirmModal = ({
     confirmColor,
     cancelColor,
     className,
-    buttonsComponent
+    buttonsComponent,
+    size
 }) => {
     let buttonsContent = (
         <>
@@ -33,6 +34,7 @@ const ConfirmModal = ({
 
     return (
         <Modal
+            size={size}
             isOpen
             toggle={() => onClose(false)}
             className={`reactstrap-confirm ${className}`}
@@ -56,7 +58,8 @@ ConfirmModal.defaultProps = {
     confirmColor: 'primary',
     cancelColor: '',
     className: '',
-    buttonsComponent: null
+    buttonsComponent: null,
+    size: null
 };
 
 ConfirmModal.propTypes = {
@@ -68,6 +71,7 @@ ConfirmModal.propTypes = {
     confirmColor: PropTypes.string,
     cancelColor: PropTypes.string,
     className: PropTypes.string,
+    size: PropTypes.string,
     buttonsComponent: PropTypes.func
 };
 
