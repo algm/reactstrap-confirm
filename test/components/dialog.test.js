@@ -30,6 +30,15 @@ describe('confirm dialog component', () => {
 
             expect(dialog.find('.modal-body').text()).toEqual('custom text');
         });
+
+        it('can customize size', () => {
+            const rendered = mount(
+                <Dialog size="lg" onClose={() => {}}></Dialog>
+            );
+            const dialog = rendered.find(Dialog);
+
+            expect(dialog.find('.modal-lg').length).toEqual(1);
+        });
     });
 
     describe('button customization', () => {
