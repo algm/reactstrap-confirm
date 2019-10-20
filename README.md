@@ -33,7 +33,7 @@ You must manually install react, react-dom and reactstrap in your project in ord
 Simply, import the module and call it as a function anywhere in your code.
 
 ```javascript
-import confirm from 'reactstrap-confirm';
+import confirm from "reactstrap-confirm";
 
 // ...code
 
@@ -47,9 +47,9 @@ You can also pass options to the confirm function:
 ```javascript
 confirm({
     title: (
-        <Fragment>
+        <>
             Content can have <strong>JSX</strong>!
-        </Fragment>
+        </>
     ),
     message: "This is a custom message",
     confirmText: "Custom confirm message",
@@ -62,11 +62,13 @@ The above example will render a customized dialog.
 
 ### Available options
 
-| Option       | Effect                                                           | Default value |
-| ------------ | ---------------------------------------------------------------- | ------------- |
-| message      | Sets the message body of the confirmation dialog                 | Are you sure? |
-| title        | Sets the title of the dialog window                              | Warning!      |
-| confirmText  | Sets the text of the confirm button                              | Ok            |
-| cancelText   | Sets the text of the cancel button                               | Cancel        |
-| confirmColor | Sets the color class of the confirm button (see reactstrap docs) | primary       |
-| cancelColor  | Sets the color class of the cancel button (see reactstrap docs)  | _empty_       |
+| Option           | Effect                                                                                                        | Default value |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- | ------------- |
+| message          | Sets the message body of the confirmation dialog                                                              | Are you sure? |
+| title            | Sets the title of the dialog window                                                                           | Warning!      |
+| confirmText      | Sets the text of the confirm button                                                                           | Ok            |
+| cancelText       | Sets the text of the cancel button                                                                            | Cancel        |
+| confirmColor     | Sets the color class of the confirm button (see reactstrap docs)                                              | primary       |
+| cancelColor      | Sets the color class of the cancel button (see reactstrap docs)                                               | _empty_       |
+| size             | Sets the size property for the modal component (see reactstrap docs)                                          | _empty_       |
+| buttonsComponent | Can receive a component for rendering the buttons. The component will receive the onClose function as a prop. | _empty_       |
