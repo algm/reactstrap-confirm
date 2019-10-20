@@ -1,4 +1,5 @@
-import '@babel/polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime';
 import React from 'react';
 import { render } from 'react-dom';
 import { Button, Container } from 'reactstrap';
@@ -39,6 +40,27 @@ const Example = () => {
         alert(`Confirm result: ${result}`);
     };
 
+    const handleCustomButtons = async () => {
+        const CustomComponent = ({ onClose }) => (
+            <div>
+                <p>I added a custom component for buttons!!</p>
+                <Button
+                    className="custom-button"
+                    onClick={() => onClose(true)}
+                    color="secondary"
+                >
+                    This is a custom component
+                </Button>
+            </div>
+        );
+
+        let result = await confirm({
+            buttonsComponent: CustomComponent
+        });
+
+        alert(`Confirm result: ${result}`);
+    };
+
     return (
         <Container>
             <Button block onClick={handleBasic}>
@@ -51,6 +73,10 @@ const Example = () => {
 
             <Button block onClick={handleAlert}>
                 Alert style
+            </Button>
+
+            <Button block onClick={handleCustomButtons}>
+                Custom Buttons Component
             </Button>
         </Container>
     );

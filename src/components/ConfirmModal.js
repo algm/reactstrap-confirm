@@ -2,21 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 
-const ConfirmModal = ({ onClose, message, title, confirmText, cancelText, confirmColor, cancelColor, className }) => {
-    return (
-        <Modal isOpen toggle={() => onClose(false)} className={className}>
-            {title && <ModalHeader toggle={() => onClose(false)}>{title || null}</ModalHeader>}
-            <ModalBody>{message}</ModalBody>
-            <ModalFooter>
-                {cancelText && (
-                    <Button color={cancelColor} onClick={() => onClose(false)}>
-                        {cancelText}
-                    </Button>
-                )}{' '}
-                <Button color={confirmColor} onClick={() => onClose(true)}>
-                    {confirmText}
+const ConfirmModal = ({
+    onClose,
+    message,
+    title,
+    confirmText,
+    cancelText,
+    confirmColor,
+    cancelColor,
+    className,
+    buttonsComponent
+}) => {
+    let buttonsContent = (
+        <>
+            {cancelText && (
+                <Button color={cancelColor} onClick={() => onClose(false)}>
+                    {cancelText}
                 </Button>
-            </ModalFooter>
+            )}{' '}
+            <Button color={confirmColor} onClick={() => onClose(true)}>
+                {confirmText}
+            </Button>
+        </>
+    );
+
+    if (buttonsComponent) {
+        const CustomComponent = buttonsComponent;
+        buttonsContent = <CustomComponent onClose={onClose} />;
+    }
+
+    return (
+        <Modal
+            isOpen
+            toggle={() => onClose(false)}
+            className={`reactstrap-confirm ${className}`}
+        >
+            {title && (
+                <ModalHeader toggle={() => onClose(false)}>
+                    {title || null}
+                </ModalHeader>
+            )}
+            <ModalBody>{message}</ModalBody>
+            <ModalFooter>{buttonsContent}</ModalFooter>
         </Modal>
     );
 };
@@ -29,6 +56,7 @@ ConfirmModal.defaultProps = {
     confirmColor: 'primary',
     cancelColor: '',
     className: '',
+    buttonsComponent: null
 };
 
 ConfirmModal.propTypes = {
@@ -40,6 +68,7 @@ ConfirmModal.propTypes = {
     confirmColor: PropTypes.string,
     cancelColor: PropTypes.string,
     className: PropTypes.string,
+    buttonsComponent: PropTypes.func
 };
 
 export default ConfirmModal;
