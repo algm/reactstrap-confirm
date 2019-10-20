@@ -52,7 +52,7 @@
     "peerDependencies": {
         "react": "^16.4.1",
         "react-dom": "^16.4.1",
-        "reactstrap": ">=^8.1.1"
+        "reactstrap": "^8.1.1"
     },
     "dependencies": {
         "lodash.defaults": "^4.2.0"
