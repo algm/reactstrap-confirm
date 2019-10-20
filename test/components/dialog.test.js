@@ -1,4 +1,4 @@
-/* global describe, it, expect, jest */
+/* global describe, it, expect */
 import React from 'react';
 import '../../setupTests';
 import { mount } from 'enzyme';
