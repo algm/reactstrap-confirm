@@ -61,6 +61,29 @@ const Example = () => {
         alert(`Confirm result: ${result}`);
     };
 
+    const handleCustomBodyComponent = async () => {
+        const CustomComponent = () => (
+            <div>
+                this is <b>custom component</b> as a body
+            </div>
+        );
+
+        let result = await confirm({
+            bodyComponent: CustomComponent,
+            title: (
+                <>
+                    Content can have <strong>JSX</strong>!
+                </>
+            ),
+            message: 'This is a custom message',
+            confirmText: 'Custom confirm message',
+            confirmColor: 'primary',
+            cancelColor: 'link text-danger'
+        });
+
+        alert(`Confirm Body component rendered: ${result}`);
+    };
+
     return (
         <Container>
             <Button block onClick={handleBasic}>
@@ -78,6 +101,11 @@ const Example = () => {
             <Button block onClick={handleCustomButtons}>
                 Custom Buttons Component
             </Button>
+            
+            <Button block onClick={handleCustomBodyComponent}>
+                Custom Body Component
+            </Button>
+            
         </Container>
     );
 };
