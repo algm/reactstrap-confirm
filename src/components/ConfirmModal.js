@@ -12,7 +12,8 @@ const ConfirmModal = ({
     cancelColor,
     className,
     buttonsComponent,
-    size
+    size,
+    bodyComponent
 }) => {
     let buttonsContent = (
         <>
@@ -31,7 +32,7 @@ const ConfirmModal = ({
         const CustomComponent = buttonsComponent;
         buttonsContent = <CustomComponent onClose={onClose} />;
     }
-
+    let BodyComponent = bodyComponent;
     return (
         <Modal
             size={size}
@@ -44,7 +45,7 @@ const ConfirmModal = ({
                     {title || null}
                 </ModalHeader>
             )}
-            <ModalBody>{message}</ModalBody>
+            <ModalBody>{bodyComponent ? <BodyComponent /> : message}</ModalBody>
             <ModalFooter>{buttonsContent}</ModalFooter>
         </Modal>
     );
@@ -59,7 +60,8 @@ ConfirmModal.defaultProps = {
     cancelColor: '',
     className: '',
     buttonsComponent: null,
-    size: null
+    size: null,
+    bodyComponent: null
 };
 
 ConfirmModal.propTypes = {
@@ -72,7 +74,8 @@ ConfirmModal.propTypes = {
     cancelColor: PropTypes.string,
     className: PropTypes.string,
     size: PropTypes.string,
-    buttonsComponent: PropTypes.func
+    buttonsComponent: PropTypes.func,
+    bodyComponent: PropTypes.func
 };
 
 export default ConfirmModal;
