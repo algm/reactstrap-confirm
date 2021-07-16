@@ -1,9 +1,9 @@
-import 'core-js/stable';
-import 'regenerator-runtime';
-import React from 'react';
-import { render } from 'react-dom';
-import { Button, Container } from 'reactstrap';
-import confirm from '../../src/index';
+import "core-js/stable";
+import "regenerator-runtime";
+import React from "react";
+import { render } from "react-dom";
+import { Button, Container } from "reactstrap";
+import confirm from "../../src/index";
 
 const Example = () => {
     const handleBasic = async () => {
@@ -19,10 +19,10 @@ const Example = () => {
                     Content can have <strong>JSX</strong>!
                 </>
             ),
-            message: 'This is a custom message',
-            confirmText: 'Custom confirm message',
-            confirmColor: 'primary',
-            cancelColor: 'link text-danger'
+            message: "This is a custom message",
+            confirmText: "Custom confirm message",
+            confirmColor: "primary",
+            cancelColor: "link text-danger",
         });
 
         alert(`Confirm result: ${result}`);
@@ -31,10 +31,10 @@ const Example = () => {
     const handleAlert = async () => {
         let result = await confirm({
             title: null,
-            message: 'I can use this component to display alerts!',
-            confirmText: 'Understood!',
-            confirmColor: 'primary',
-            cancelText: null
+            message: "I can use this component to display alerts!",
+            confirmText: "Understood!",
+            confirmColor: "primary",
+            cancelText: null,
         });
 
         alert(`Confirm result: ${result}`);
@@ -55,7 +55,7 @@ const Example = () => {
         );
 
         let result = await confirm({
-            buttonsComponent: CustomComponent
+            buttonsComponent: CustomComponent,
         });
 
         alert(`Confirm result: ${result}`);
@@ -75,10 +75,10 @@ const Example = () => {
                     Content can have <strong>JSX</strong>!
                 </>
             ),
-            message: 'This is a custom message',
-            confirmText: 'Custom confirm message',
-            confirmColor: 'primary',
-            cancelColor: 'link text-danger'
+            message: "This is a custom message",
+            confirmText: "Custom confirm message",
+            confirmColor: "primary",
+            cancelColor: "link text-danger",
         });
 
         alert(`Confirm Body component rendered: ${result}`);
@@ -101,13 +101,12 @@ const Example = () => {
             <Button block onClick={handleCustomButtons}>
                 Custom Buttons Component
             </Button>
-            
+
             <Button block onClick={handleCustomBodyComponent}>
                 Custom Body Component
             </Button>
-            
         </Container>
     );
 };
 
-render(<Example />, document.getElementById('app'));
+render(<Example />, document.getElementById("app"));

@@ -1,63 +1,65 @@
+/**
+ * @jest-environment jsdom
+ */
+
 /* global describe, it, expect */
-import React from 'react';
-import '../../setupTests';
-import { mount } from 'enzyme';
-import Dialog from '../../src/components/ConfirmModal';
-import { Button } from 'reactstrap';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import Dialog from "../../src/components/ConfirmModal";
+import { Button } from "reactstrap";
 
-describe('confirm dialog component', () => {
-    it('renders with defaults', () => {
-        const rendered = mount(<Dialog onClose={() => {}}></Dialog>);
+describe("confirm dialog component", () => {
+    it("renders with defaults", () => {
+        render(<Dialog onClose={() => {}}></Dialog>);
 
-        expect(rendered.find(Dialog).length).toEqual(1);
+        expect(screen.findByRole("dialog")).toBeDefined();
     });
 
-    describe('content customization', () => {
-        it('can customize title', () => {
-            const rendered = mount(
-                <Dialog title="custom title" onClose={() => {}}></Dialog>
-            );
-            const dialog = rendered.find(Dialog);
+    describe("content customization", () => {
+        it("can customize title", () => {
+            render(<Dialog title="custom title" onClose={() => {}}></Dialog>);
+            const found = screen.findByText("custom title");
 
-            expect(dialog.find('.modal-title').text()).toEqual('custom title');
+            expect(found).toBeDefined();
         });
 
-        it('can customize message', () => {
-            const rendered = mount(
-                <Dialog message="custom text" onClose={() => {}}></Dialog>
-            );
-            const dialog = rendered.find(Dialog);
-
-            expect(dialog.find('.modal-body').text()).toEqual('custom text');
+        it("can customize message", () => {
+            render(<Dialog message="custom text" onClose={() => {}}></Dialog>);
+            const found = screen.findByText("custom text");
+            expect(found).toBeDefined();
         });
 
-        it('can customize size', () => {
-            const rendered = mount(
-                <Dialog size="lg" onClose={() => {}}></Dialog>
-            );
-            const dialog = rendered.find(Dialog);
+        it("can customize size", () => {
+            render(<Dialog size="lg" onClose={() => {}}></Dialog>);
+            const dialog = screen.getByRole("dialog");
 
-            expect(dialog.find('.modal-lg').length).toEqual(1);
+            const classes = dialog.getElementsByClassName("modal-lg");
+
+            expect(classes.length).toEqual(1);
         });
     });
 
-    describe('button customization', () => {
-        it('can customize colors', () => {
-            const rendered = mount(
+    describe("button customization", () => {
+        it("can customize colors", () => {
+            render(
                 <Dialog
                     confirmColor="confirmColor"
                     cancelColor="cancelColor"
                     onClose={() => {}}
                 ></Dialog>
             );
-            const dialog = rendered.find(Dialog);
+            const dialog = screen.getByRole("dialog");
 
-            expect(dialog.find('.btn-confirmColor').length).toEqual(1);
-            expect(dialog.find('.btn-cancelColor').length).toEqual(1);
+            expect(
+                dialog.getElementsByClassName("btn-confirmColor").length
+            ).toEqual(1);
+            expect(
+                dialog.getElementsByClassName("btn-cancelColor").length
+            ).toEqual(1);
         });
 
-        it('can customize text', () => {
-            const rendered = mount(
+        it("can customize text", () => {
+            render(
                 <Dialog
                     confirmColor="confirmText"
                     cancelColor="cancelText"
@@ -66,16 +68,12 @@ describe('confirm dialog component', () => {
                     onClose={() => {}}
                 ></Dialog>
             );
-            const dialog = rendered.find(Dialog);
 
-            expect(dialog.find('.btn-confirmText').text()).toEqual(
-                'confirmText'
-            );
-
-            expect(dialog.find('.btn-cancelText').text()).toEqual('cancelText');
+            expect(screen.getByText("confirmText")).toBeDefined();
+            expect(screen.getByText("cancelText")).toBeDefined();
         });
 
-        it('can customize buttons component', () => {
+        it("can customize buttons component", () => {
             const CustomButtons = ({ onClose }) => (
                 <div className="custom-buttons">
                     <Button
@@ -87,16 +85,18 @@ describe('confirm dialog component', () => {
                 </div>
             );
 
-            const rendered = mount(
+            render(
                 <Dialog
                     buttonsComponent={CustomButtons}
                     onClose={() => {}}
                 ></Dialog>
             );
 
-            const dialog = rendered.find(Dialog);
+            const dialog = screen.getByRole("dialog");
 
-            expect(dialog.find('.custom-buttons').length).toEqual(1);
+            expect(
+                dialog.getElementsByClassName("custom-buttons").length
+            ).toEqual(1);
         });
     });
 });

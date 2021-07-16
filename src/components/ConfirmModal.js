@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
 const ConfirmModal = ({
     onClose,
@@ -13,26 +13,28 @@ const ConfirmModal = ({
     className,
     buttonsComponent,
     size,
-    bodyComponent
+    bodyComponent,
 }) => {
     let buttonsContent = (
-        <>
+        <Fragment>
             {cancelText && (
                 <Button color={cancelColor} onClick={() => onClose(false)}>
                     {cancelText}
                 </Button>
-            )}{' '}
+            )}{" "}
             <Button color={confirmColor} onClick={() => onClose(true)}>
                 {confirmText}
             </Button>
-        </>
+        </Fragment>
     );
 
     if (buttonsComponent) {
         const CustomComponent = buttonsComponent;
         buttonsContent = <CustomComponent onClose={onClose} />;
     }
+
     let BodyComponent = bodyComponent;
+
     return (
         <Modal
             size={size}
@@ -52,16 +54,16 @@ const ConfirmModal = ({
 };
 
 ConfirmModal.defaultProps = {
-    message: 'Are you sure?',
-    title: 'Warning!',
-    confirmText: 'Ok',
-    cancelText: 'Cancel',
-    confirmColor: 'primary',
-    cancelColor: '',
-    className: '',
+    message: "Are you sure?",
+    title: "Warning!",
+    confirmText: "Ok",
+    cancelText: "Cancel",
+    confirmColor: "primary",
+    cancelColor: "",
+    className: "",
     buttonsComponent: null,
     size: null,
-    bodyComponent: null
+    bodyComponent: null,
 };
 
 ConfirmModal.propTypes = {
@@ -75,7 +77,7 @@ ConfirmModal.propTypes = {
     className: PropTypes.string,
     size: PropTypes.string,
     buttonsComponent: PropTypes.func,
-    bodyComponent: PropTypes.func
+    bodyComponent: PropTypes.func,
 };
 
 export default ConfirmModal;
