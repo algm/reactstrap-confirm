@@ -1,10 +1,10 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import ConfirmModal from "./components/ConfirmModal";
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import ConfirmModal from './components/ConfirmModal';
 
 const confirm = (props) => {
     return new Promise((resolve) => {
-        let el = document.createElement("div");
+        let el = document.createElement('div');
 
         const handleResolve = (result) => {
             unmountComponentAtNode(el);

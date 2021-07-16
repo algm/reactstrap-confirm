@@ -5,3 +5,4 @@ dist
 .nyc_output
 .vscode
 out*
+storybook-static

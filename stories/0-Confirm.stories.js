@@ -1,6 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
-import confirm from "../src/index";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import confirm from '../src/index';
 import {
     Button,
     Container,
@@ -8,10 +8,10 @@ import {
     CardImg,
     CardBody,
     CardText,
-} from "reactstrap";
+} from 'reactstrap';
 
 export default {
-    title: "Confirm dialog",
+    title: 'Confirm dialog',
 };
 
 export const basic = () => {
@@ -28,7 +28,7 @@ export const basic = () => {
             <p>By default, the confirm function will render a basic dialog.</p>
             <Button onClick={basicDialog}>Confirm</Button>
             <p>
-                <strong>Confirmed:</strong> {confirmed ? "true" : "false"}
+                <strong>Confirmed:</strong> {confirmed ? 'true' : 'false'}
             </p>
         </Container>
     );
@@ -39,7 +39,7 @@ export const customized = () => {
 
     const customizedDialog = async () => {
         const result = await confirm({
-            title: "I am a custom title 😍",
+            title: 'I am a custom title 😍',
             message: (
                 <Card>
                     <CardImg
@@ -56,10 +56,10 @@ export const customized = () => {
                     </CardBody>
                 </Card>
             ),
-            confirmColor: "danger",
+            confirmColor: 'danger',
             cancelText: "I am not sure, don't do anything",
-            confirmText: "Yes, I am sure, proceed!",
-            size: "sm",
+            confirmText: 'Yes, I am sure, proceed!',
+            size: 'sm',
         });
 
         setConfirmed(result);
@@ -68,19 +68,19 @@ export const customized = () => {
     return (
         <Container class="py-3">
             <p>
-                You have a lot of customization options, see{" "}
+                You have a lot of customization options, see{' '}
                 <a
                     href="https://github.com/algm/reactstrap-confirm"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     Readme
-                </a>{" "}
+                </a>{' '}
                 for options.
             </p>
             <Button onClick={customizedDialog}>Confirm</Button>
             <p>
-                <strong>Confirmed:</strong> {confirmed ? "true" : "false"}
+                <strong>Confirmed:</strong> {confirmed ? 'true' : 'false'}
             </p>
         </Container>
     );
@@ -89,11 +89,11 @@ export const customized = () => {
 export const Alert = () => {
     const alertDialog = async () => {
         await confirm({
-            title: "Warning!",
+            title: 'Warning!',
             message:
-                "You can use the confirm function as a way to display alerts!",
+                'You can use the confirm function as a way to display alerts!',
             cancelText: null,
-            confirmText: "Understood!",
+            confirmText: 'Understood!',
         });
     };
 
@@ -140,7 +140,7 @@ export const customButtonsComponent = () => {
             </p>
             <Button onClick={customButtonsDialog}>Confirm</Button>
             <p>
-                <strong>Confirmed:</strong> {confirmed ? "true" : "false"}
+                <strong>Confirmed:</strong> {confirmed ? 'true' : 'false'}
             </p>
         </Container>
     );
