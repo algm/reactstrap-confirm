@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import confirm from '../src/index';
+import PropTypes from 'prop-types';
 import {
   Button,
   Container,
@@ -122,6 +123,10 @@ export const customButtonsComponent = () => {
         </Button>
       </div>
     );
+
+    CustomComponent.propTypes = {
+      onClose: PropTypes.func,
+    };
 
     const result = await confirm({
       buttonsComponent: CustomComponent,
