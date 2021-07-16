@@ -8,15 +8,15 @@ import { screen } from '@testing-library/dom';
 import { fireEvent } from '@testing-library/react';
 
 describe('confirm function', () => {
-    it('renders the modal on calling', () => {
-        confirm();
+  it('renders the modal on calling', () => {
+    confirm();
 
-        const found = screen.findByText('Are you sure?');
+    const found = screen.findByText('Are you sure?');
 
-        expect(found).toBeDefined();
+    expect(found).toBeDefined();
 
-        const button = screen.getByText('Ok');
+    const button = screen.getByText('Ok');
 
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
+  });
 });
